@@ -1,50 +1,51 @@
 
 import React, { useState } from 'react';
-import { Plane, Building2, Phone, MapPin, Clock, Luggage, Car, Coffee, ShoppingBag, Wifi } from 'lucide-react';
+import { MapPin, Building2, Phone, Clock, Car, Train, Users, Calendar } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
-const AirportGuide = () => {
-  const [activeTab, setActiveTab] = useState('baggage');
+const SoccerGuide = () => {
+  const [activeTab, setActiveTab] = useState('reservation');
 
-  const airports = [
-    { name: '인천국제공항', code: 'ICN', icon: '✈️', href: '#incheon' },
-    { name: '김포국제공항', code: 'GMP', icon: '🛫', href: '#gimpo' },
-    { name: '제주국제공항', code: 'CJU', icon: '🏝️', href: '#jeju' },
-    { name: '김해국제공항', code: 'PUS', icon: '🌊', href: '#gimhae' },
-    { name: '대구국제공항', code: 'TAE', icon: '🏔️', href: '#daegu' },
-    { name: '청주국제공항', code: 'CJJ', icon: '🌸', href: '#cheongju' },
-    { name: '무안국제공항', code: 'MWX', icon: '🌅', href: '#muan' },
-    { name: '울산공항', code: 'USN', icon: '🏭', href: '#ulsan' },
-    { name: '여수공항', code: 'RSU', icon: '⛵', href: '#yeosu' },
-    { name: '포항경주공항', code: 'KPX', icon: '🏛️', href: '#pohang' },
-    { name: '군산공항', code: 'KUV', icon: '🦅', href: '#gunsan' },
-    { name: '원주공항', code: 'WJU', icon: '🌲', href: '#wonju' }
+  const stadiums = [
+    { name: '서울월드컵경기장', capacity: '66,704석', icon: '⚽', href: '#seoul-worldcup', team: 'FC서울' },
+    { name: '수원월드컵경기장', capacity: '44,031석', icon: '🏟️', href: '#suwon-worldcup', team: '수원삼성' },
+    { name: '인천축구전용경기장', capacity: '20,891석', icon: '💙', href: '#incheon', team: '인천유나이티드' },
+    { name: '창원축구센터', capacity: '35,000석', icon: '🔵', href: '#changwon', team: '경남FC' },
+    { name: '대전월드컵경기장', capacity: '40,535석', icon: '🟢', href: '#daejeon-worldcup', team: '대전하나시티즌' },
+    { name: '광주월드컵경기장', capacity: '40,245석', icon: '🔴', href: '#gwangju-worldcup', team: '광주FC' },
+    { name: '대구FC파크', capacity: '12,415석', icon: '🟡', href: '#daegu-fc', team: '대구FC' },
+    { name: '울산문수축구경기장', capacity: '44,102석', icon: '⚫', href: '#ulsan-munsu', team: '울산HD' },
+    { name: '전주월드컵경기장', capacity: '42,477석', icon: '🟤', href: '#jeonju-worldcup', team: '전북현대' },
+    { name: '포항스틸야드', capacity: '25,000석', icon: '🔶', href: '#pohang-steel', team: '포항스틸러스' },
+    { name: '제주월드컵경기장', capacity: '35,657석', icon: '🏝️', href: '#jeju-worldcup', team: '제주유나이티드' },
+    { name: '서울올림픽주경기장', capacity: '69,950석', icon: '🏛️', href: '#seoul-olympic', team: '국가대표 경기장' }
   ];
 
-  const airlines = [
-    '대한항공', '아시아나항공', '제주항공', '진에어', 
-    '티웨이항공', '에어부산', '이스타항공', '에어서울'
+  const kLeagueTeams = [
+    'FC서울', '수원삼성 블루윙즈', '인천유나이티드', '경남FC',
+    '대전하나시티즌', '광주FC', '대구FC', '울산HD',
+    '전북현대 모터스', '포항스틸러스', '제주유나이티드', '강원FC'
   ];
 
-  const emergencyContacts = [
-    { title: '인천공항 안내', number: '1577-2600', icon: Phone },
-    { title: '공항경찰', number: '032-741-2123', icon: Phone },
-    { title: '의무실', number: '032-741-2080', icon: Phone },
-    { title: '분실물센터', number: '032-741-2357', icon: Phone }
+  const soccerContacts = [
+    { title: 'KFA 대한축구협회', number: '02-2002-0777', icon: Phone },
+    { title: 'K리그 사무국', number: '02-2002-9000', icon: Phone },
+    { title: '축구장 예약센터', number: '1588-7777', icon: Phone },
+    { title: '축구용품 할인정보', number: '1577-1234', icon: Phone }
   ];
 
   const facilities = [
-    { name: '면세점', desc: '신라면세점, 롯데면세점', icon: ShoppingBag },
-    { name: '식당가', desc: '한식, 양식, 패스트푸드', icon: Coffee },
-    { name: '카페', desc: '스타벅스, 투썸플레이스', icon: Coffee },
-    { name: '라운지', desc: 'KAL라운지, 아시아나라운지', icon: Building2 },
-    { name: '은행/ATM', desc: '환전소, 현금인출기', icon: Building2 },
-    { name: '통신', desc: '무료WiFi, 충전소', icon: Wifi }
+    { name: '매점', desc: '음료, 간식, 축구용품', icon: Building2 },
+    { name: '주차장', desc: '경기장 내부/외부 주차', icon: Car },
+    { name: '대중교통', desc: '지하철, 버스 연결', icon: Train },
+    { name: '팬샵', desc: '구단 굿즈, 유니폼', icon: Building2 },
+    { name: '화장실', desc: '각 구역별 편의시설', icon: Building2 },
+    { name: '의무실', desc: '응급처치, 의료진 상주', icon: Building2 }
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-600 via-purple-600 to-blue-800 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-green-600 via-blue-600 to-green-800 relative overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute w-20 h-20 bg-white/10 rounded-full top-1/4 left-1/4 animate-pulse"></div>
@@ -56,35 +57,38 @@ const AirportGuide = () => {
         {/* Header */}
         <header className="text-center mb-12 animate-fade-in">
           <h1 className="text-5xl font-bold text-white mb-4 flex items-center justify-center gap-3">
-            <Plane className="w-12 h-12" />
-            대한민국 공항 안내
+            <div className="text-6xl">⚽</div>
+            대한민국 축구장 안내
           </h1>
-          <p className="text-xl text-white/80">전국 공항 정보를 한눈에 확인하세요</p>
+          <p className="text-xl text-white/80">전국 축구장 정보와 예약을 한눈에 확인하세요</p>
         </header>
 
         {/* Ad Space */}
         <div className="bg-white/10 border-2 border-dashed border-white/30 rounded-xl p-8 mb-12 text-center backdrop-blur-md">
           <div className="text-white/60 text-lg mb-2">📢 광고 영역</div>
-          <div className="text-white/40 text-sm">여기에 광고를 삽입하세요</div>
+          <div className="text-white/40 text-sm">축구용품 할인 정보를 여기에 삽입하세요</div>
         </div>
 
-        {/* Main Airports */}
+        {/* Main Stadiums */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold text-white text-center mb-8 relative">
-            주요 공항
-            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-gradient-to-r from-pink-400 to-cyan-400 rounded-full"></div>
+            전국 주요 축구장
+            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-gradient-to-r from-green-400 to-blue-400 rounded-full"></div>
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {airports.map((airport, index) => (
+            {stadiums.map((stadium, index) => (
               <Card key={index} className="bg-white/15 border-white/20 backdrop-blur-md hover:bg-white/25 transition-all duration-300 hover:transform hover:-translate-y-2 cursor-pointer group">
                 <CardContent className="p-6 text-center">
                   <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                    {airport.icon}
+                    {stadium.icon}
                   </div>
-                  <h3 className="text-lg font-semibold text-white mb-2">{airport.name}</h3>
-                  <div className="bg-white/10 text-white/70 px-3 py-1 rounded-full text-sm inline-block">
-                    {airport.code}
+                  <h3 className="text-lg font-semibold text-white mb-2">{stadium.name}</h3>
+                  <div className="bg-white/10 text-white/70 px-3 py-1 rounded-full text-sm mb-2">
+                    {stadium.capacity}
+                  </div>
+                  <div className="text-green-300 text-sm font-medium">
+                    {stadium.team}
                   </div>
                 </CardContent>
               </Card>
@@ -92,15 +96,15 @@ const AirportGuide = () => {
           </div>
         </section>
 
-        {/* Airlines */}
+        {/* K-League Teams */}
         <section className="mb-16">
           <Card className="bg-white/10 border-white/20 backdrop-blur-md">
             <CardContent className="p-8">
-              <h2 className="text-3xl font-bold text-white text-center mb-8">국내 주요 항공사</h2>
+              <h2 className="text-3xl font-bold text-white text-center mb-8">K리그 구단</h2>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                {airlines.map((airline, index) => (
+                {kLeagueTeams.map((team, index) => (
                   <div key={index} className="bg-white/20 rounded-lg p-4 text-center text-white font-medium hover:bg-white/30 transition-all duration-300 hover:transform hover:-translate-y-1">
-                    {airline}
+                    {team}
                   </div>
                 ))}
               </div>
@@ -108,92 +112,56 @@ const AirportGuide = () => {
           </Card>
         </section>
 
-        {/* Travel Guide */}
+        {/* Soccer Guide */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold text-white text-center mb-8 relative">
-            여행 필수 가이드
-            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-gradient-to-r from-pink-400 to-cyan-400 rounded-full"></div>
+            축구장 이용 가이드
+            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-gradient-to-r from-green-400 to-blue-400 rounded-full"></div>
           </h2>
           
           <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
             <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 bg-white/10 border-white/20">
-              <TabsTrigger value="baggage" className="data-[state=active]:bg-white/30">수하물 규정</TabsTrigger>
-              <TabsTrigger value="checkin" className="data-[state=active]:bg-white/30">체크인 시간</TabsTrigger>
+              <TabsTrigger value="reservation" className="data-[state=active]:bg-white/30">예약 방법</TabsTrigger>
               <TabsTrigger value="transport" className="data-[state=active]:bg-white/30">교통편</TabsTrigger>
+              <TabsTrigger value="parking" className="data-[state=active]:bg-white/30">주차 정보</TabsTrigger>
               <TabsTrigger value="facilities" className="data-[state=active]:bg-white/30">편의시설</TabsTrigger>
             </TabsList>
 
-            <TabsContent value="baggage" className="mt-6">
+            <TabsContent value="reservation" className="mt-6">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <Card className="bg-white/10 border-white/20 backdrop-blur-md">
                   <CardContent className="p-6">
                     <div className="flex items-center gap-3 mb-4">
-                      <Plane className="w-6 h-6 text-white" />
-                      <h4 className="text-lg font-semibold text-white">국내선</h4>
+                      <Calendar className="w-6 h-6 text-white" />
+                      <h4 className="text-lg font-semibold text-white">온라인 예약</h4>
                     </div>
                     <p className="text-white/90">
-                      <strong>기내:</strong> 10kg | <strong>위탁:</strong> 20kg<br/>
-                      <strong>크기:</strong> 55×40×20cm
+                      <strong>방법:</strong> 각 경기장 홈페이지<br/>
+                      <strong>시간:</strong> 24시간 예약 가능<br/>
+                      <strong>결제:</strong> 카드, 계좌이체
                     </p>
                   </CardContent>
                 </Card>
                 <Card className="bg-white/10 border-white/20 backdrop-blur-md">
                   <CardContent className="p-6">
                     <div className="flex items-center gap-3 mb-4">
-                      <MapPin className="w-6 h-6 text-white" />
-                      <h4 className="text-lg font-semibold text-white">국제선</h4>
+                      <Phone className="w-6 h-6 text-white" />
+                      <h4 className="text-lg font-semibold text-white">전화 예약</h4>
                     </div>
                     <p className="text-white/90">
-                      <strong>기내:</strong> 10kg | <strong>위탁:</strong> 23kg<br/>
-                      <strong>크기:</strong> 55×40×20cm
-                    </p>
-                  </CardContent>
-                </Card>
-                <Card className="bg-red-500/20 border-red-400/30 backdrop-blur-md">
-                  <CardContent className="p-6">
-                    <div className="flex items-center gap-3 mb-4">
-                      <Luggage className="w-6 h-6 text-white" />
-                      <h4 className="text-lg font-semibold text-white">금지 물품</h4>
-                    </div>
-                    <p className="text-white/90">액체류 100ml 초과, 날카로운 물건, 리튬배터리</p>
-                  </CardContent>
-                </Card>
-              </div>
-            </TabsContent>
-
-            <TabsContent value="checkin" className="mt-6">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <Card className="bg-white/10 border-white/20 backdrop-blur-md">
-                  <CardContent className="p-6">
-                    <div className="flex items-center gap-3 mb-4">
-                      <Clock className="w-6 h-6 text-white" />
-                      <h4 className="text-lg font-semibold text-white">국내선</h4>
-                    </div>
-                    <p className="text-white/90">
-                      <strong>체크인 마감:</strong> 출발 40분 전<br/>
-                      <strong>탑승구 마감:</strong> 출발 15분 전
-                    </p>
-                  </CardContent>
-                </Card>
-                <Card className="bg-white/10 border-white/20 backdrop-blur-md">
-                  <CardContent className="p-6">
-                    <div className="flex items-center gap-3 mb-4">
-                      <Clock className="w-6 h-6 text-white" />
-                      <h4 className="text-lg font-semibold text-white">국제선</h4>
-                    </div>
-                    <p className="text-white/90">
-                      <strong>체크인 마감:</strong> 출발 60분 전<br/>
-                      <strong>탑승구 마감:</strong> 출발 30분 전
+                      <strong>시간:</strong> 평일 09:00-18:00<br/>
+                      <strong>주말:</strong> 09:00-17:00<br/>
+                      <strong>예약:</strong> 최대 30일 전
                     </p>
                   </CardContent>
                 </Card>
                 <Card className="bg-green-500/20 border-green-400/30 backdrop-blur-md">
                   <CardContent className="p-6">
                     <div className="flex items-center gap-3 mb-4">
-                      <Phone className="w-6 h-6 text-white" />
-                      <h4 className="text-lg font-semibold text-white">꿀팁</h4>
+                      <Users className="w-6 h-6 text-white" />
+                      <h4 className="text-lg font-semibold text-white">단체 예약</h4>
                     </div>
-                    <p className="text-white/90">모바일 체크인으로 시간 단축하세요!</p>
+                    <p className="text-white/90">10명 이상 단체는 할인 혜택 제공</p>
                   </CardContent>
                 </Card>
               </div>
@@ -202,10 +170,10 @@ const AirportGuide = () => {
             <TabsContent value="transport" className="mt-6">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {[
-                  { title: '공항버스', desc: '시내 주요 지역 운행\n요금: 15,000~17,000원', icon: Car },
-                  { title: '지하철/전철', desc: '인천공항선, 김포공항선\n요금: 4,000~5,000원', icon: Car },
-                  { title: '자가용', desc: '주차요금: 일반 4,000원/일\n지정 6,000원/일', icon: Car },
-                  { title: '택시', desc: '시내까지 60,000~80,000원\n(거리별 상이)', icon: Car }
+                  { title: '지하철', desc: '각 경기장별 전용역\n2-9호선 연결', icon: Train },
+                  { title: '버스', desc: '시내버스, 마을버스\n경기일 증편 운행', icon: Car },
+                  { title: '셔틀버스', desc: '경기일 임시 운행\n주요 지하철역 연결', icon: Car },
+                  { title: '자가용', desc: '경기장 주차장 이용\n사전 예약 권장', icon: Car }
                 ].map((transport, index) => (
                   <Card key={index} className="bg-white/10 border-white/20 backdrop-blur-md">
                     <CardContent className="p-6 text-center">
@@ -215,6 +183,46 @@ const AirportGuide = () => {
                     </CardContent>
                   </Card>
                 ))}
+              </div>
+            </TabsContent>
+
+            <TabsContent value="parking" className="mt-6">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <Card className="bg-white/10 border-white/20 backdrop-blur-md">
+                  <CardContent className="p-6">
+                    <div className="flex items-center gap-3 mb-4">
+                      <Car className="w-6 h-6 text-white" />
+                      <h4 className="text-lg font-semibold text-white">경기장 주차</h4>
+                    </div>
+                    <p className="text-white/90">
+                      <strong>요금:</strong> 경기일 10,000원<br/>
+                      <strong>평상시:</strong> 시간당 2,000원<br/>
+                      <strong>예약:</strong> 온라인 사전예약
+                    </p>
+                  </CardContent>
+                </Card>
+                <Card className="bg-white/10 border-white/20 backdrop-blur-md">
+                  <CardContent className="p-6">
+                    <div className="flex items-center gap-3 mb-4">
+                      <MapPin className="w-6 h-6 text-white" />
+                      <h4 className="text-lg font-semibold text-white">인근 주차장</h4>
+                    </div>
+                    <p className="text-white/90">
+                      <strong>공영주차장:</strong> 도보 5-10분<br/>
+                      <strong>요금:</strong> 8,000~12,000원<br/>
+                      <strong>운영:</strong> 24시간
+                    </p>
+                  </CardContent>
+                </Card>
+                <Card className="bg-blue-500/20 border-blue-400/30 backdrop-blur-md">
+                  <CardContent className="p-6">
+                    <div className="flex items-center gap-3 mb-4">
+                      <Clock className="w-6 h-6 text-white" />
+                      <h4 className="text-lg font-semibold text-white">주차 팁</h4>
+                    </div>
+                    <p className="text-white/90">경기 2시간 전 도착 권장!</p>
+                  </CardContent>
+                </Card>
               </div>
             </TabsContent>
 
@@ -234,20 +242,20 @@ const AirportGuide = () => {
           </Tabs>
         </section>
 
-        {/* Emergency Contacts */}
+        {/* Soccer Contacts */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold text-white text-center mb-8 relative">
-            긴급 연락처
-            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-gradient-to-r from-pink-400 to-cyan-400 rounded-full"></div>
+            축구 관련 연락처
+            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-gradient-to-r from-green-400 to-blue-400 rounded-full"></div>
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {emergencyContacts.map((contact, index) => (
+            {soccerContacts.map((contact, index) => (
               <Card key={index} className="bg-white/15 border-white/20 backdrop-blur-md hover:bg-white/25 transition-all duration-300 hover:transform hover:-translate-y-2">
                 <CardContent className="p-6 text-center">
                   <contact.icon className="w-8 h-8 text-white mx-auto mb-4" />
                   <h4 className="text-lg font-semibold text-white mb-2">{contact.title}</h4>
-                  <div className="text-cyan-300 font-mono text-lg font-bold">{contact.number}</div>
+                  <div className="text-green-300 font-mono text-lg font-bold">{contact.number}</div>
                 </CardContent>
               </Card>
             ))}
@@ -258,14 +266,14 @@ const AirportGuide = () => {
         <section className="mb-16">
           <h2 className="text-3xl font-bold text-white text-center mb-8 relative">
             빠른 서비스
-            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-gradient-to-r from-pink-400 to-cyan-400 rounded-full"></div>
+            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-gradient-to-r from-green-400 to-blue-400 rounded-full"></div>
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { title: '실시간 운항정보', desc: '한국공항공사 공식 사이트', icon: Building2, href: 'https://www.airport.co.kr/main/index.do' },
-              { title: '항공편 조회', desc: '에어포탈 통합 검색', icon: Plane, href: 'https://www.airportal.go.kr/flight/flightStatsIntro.jsp' },
-              { title: '티켓 예매', desc: '온라인 항공권 예약', icon: Phone, href: 'https://www.koreanair.com/' }
+              { title: '축구장 예약', desc: 'K리그 통합 예약 시스템', icon: Calendar, href: 'https://www.kleague.com/' },
+              { title: '경기 일정', desc: 'K리그 공식 일정 확인', icon: Clock, href: 'https://www.kleague.com/match' },
+              { title: '티켓 예매', desc: '온라인 티켓 예매', icon: Phone, href: 'https://ticket.interpark.com/sports' }
             ].map((service, index) => (
               <Card key={index} className="bg-white/20 border-white/20 backdrop-blur-md hover:bg-white/30 transition-all duration-300 hover:transform hover:-translate-y-2 cursor-pointer group">
                 <CardContent className="p-8 text-center">
@@ -280,12 +288,12 @@ const AirportGuide = () => {
 
         {/* Footer Ad */}
         <div className="bg-white/10 border-2 border-dashed border-white/30 rounded-xl p-8 text-center backdrop-blur-md">
-          <div className="text-white/60 text-lg mb-2">🎯 푸터 광고 영역</div>
-          <div className="text-white/40 text-sm">여기에 반응형 광고를 삽입하세요</div>
+          <div className="text-white/60 text-lg mb-2">🎯 축구용품 할인 광고</div>
+          <div className="text-white/40 text-sm">축구화, 유니폼, 축구공 할인 정보를 여기에 삽입하세요</div>
         </div>
       </div>
     </div>
   );
 };
 
-export default AirportGuide;
+export default SoccerGuide;
