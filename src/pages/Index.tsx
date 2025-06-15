@@ -1,8 +1,7 @@
-
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { MapPin, Clock } from "lucide-react";
+import { CreditCard, Clock } from "lucide-react";
 
 const Index = () => {
   return (
@@ -43,20 +42,22 @@ const Index = () => {
           <Card className="hover:shadow-lg transition-shadow duration-300">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <MapPin className="w-5 h-5 text-green-600" />
-                스포츠 시설
+                <CreditCard className="w-5 h-5 text-green-600" />
+                카드 혜택 안내
               </CardTitle>
               <CardDescription>
-                다양한 스포츠 시설 정보
+                인기 카드 추천 및 이벤트 정보
               </CardDescription>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-gray-600 mb-4">
-                농구장, 테니스장, 수영장 등 다양한 스포츠 시설 정보를 제공합니다.
+                주요 카드사별 인기 카드, 특별 할인 및 이벤트 정보를 모아보세요.
               </p>
-              <Button variant="outline" className="w-full" disabled>
-                준비 중
-              </Button>
+              <Link to="/credit-card-guide">
+                <Button className="w-full">
+                  카드 정보 보기
+                </Button>
+              </Link>
             </CardContent>
           </Card>
 
