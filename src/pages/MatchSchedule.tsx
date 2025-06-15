@@ -1,8 +1,7 @@
-
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Calendar } from "lucide-react";
+import { Calendar, Link } from "lucide-react";
 
 const MatchSchedule = () => {
   const scheduleData = [
@@ -14,6 +13,7 @@ const MatchSchedule = () => {
       venue: "울산문수축구경기장",
       status: "경기 예정",
       statusVariant: "secondary",
+      url: "https://www.kleague.com/schedule",
     },
     {
       date: "2025-06-21",
@@ -23,6 +23,7 @@ const MatchSchedule = () => {
       venue: "서울월드컵경기장",
       status: "경기 예정",
       statusVariant: "secondary",
+      url: "https://www.kleague.com/schedule",
     },
     {
       date: "2025-06-22",
@@ -32,6 +33,7 @@ const MatchSchedule = () => {
       venue: "포항스틸야드",
       status: "경기 예정",
       statusVariant: "secondary",
+      url: "https://www.kleague.com/schedule",
     },
     {
       date: "2025-06-21",
@@ -108,7 +110,16 @@ const MatchSchedule = () => {
                     <TableCell>
                       <Badge variant={game.league === 'K리그1' ? 'default' : 'destructive'}>{game.league}</Badge>
                     </TableCell>
-                    <TableCell className="font-semibold">{game.match}</TableCell>
+                    <TableCell className="font-semibold">
+                      <div className="flex items-center gap-2">
+                        {game.match}
+                        {game.url && (
+                          <a href={game.url} target="_blank" rel="noopener noreferrer" title="자세히 보기">
+                            <Link className="w-4 h-4 text-muted-foreground hover:text-primary transition-colors" />
+                          </a>
+                        )}
+                      </div>
+                    </TableCell>
                     <TableCell className="hidden sm:table-cell text-gray-600">{game.venue}</TableCell>
                     <TableCell className="text-right">
                       <Badge variant={game.statusVariant as any}>{game.status}</Badge>
@@ -130,4 +141,3 @@ const MatchSchedule = () => {
 };
 
 export default MatchSchedule;
-
