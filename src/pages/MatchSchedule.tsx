@@ -1,7 +1,8 @@
+
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Calendar, Link } from "lucide-react";
+import { Calendar, Link as LinkIcon } from "lucide-react";
 
 const MatchSchedule = () => {
   const scheduleData = [
@@ -115,7 +116,7 @@ const MatchSchedule = () => {
                         {game.match}
                         {game.url && (
                           <a href={game.url} target="_blank" rel="noopener noreferrer" title="자세히 보기">
-                            <Link className="w-4 h-4 text-muted-foreground hover:text-primary transition-colors" />
+                            <LinkIcon className="w-4 h-4 text-muted-foreground hover:text-primary transition-colors" />
                           </a>
                         )}
                       </div>
