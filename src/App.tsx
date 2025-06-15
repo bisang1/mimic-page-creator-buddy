@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import AirportGuide from "./pages/AirportGuide";
 import CreditCardGuide from "./pages/CreditCardGuide";
+import MatchSchedule from "./pages/MatchSchedule";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -21,6 +22,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/airport-guide" element={<AirportGuide />} />
           <Route path="/credit-card-guide" element={<CreditCardGuide />} />
+          <Route path="/match-schedule" element={<MatchSchedule />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
@@ -30,3 +32,4 @@ const App = () => (
 );
 
 export default App;
+

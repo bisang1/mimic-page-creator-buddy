@@ -75,9 +75,11 @@ const Index = () => {
               <p className="text-sm text-gray-600 mb-4">
                 실시간 경기 일정과 시설 예약 현황을 확인하세요.
               </p>
-              <Button variant="outline" className="w-full" disabled>
-                준비 중
-              </Button>
+              <Link to="/match-schedule">
+                <Button className="w-full">
+                  경기 일정 보기
+                </Button>
+              </Link>
             </CardContent>
           </Card>
         </div>
