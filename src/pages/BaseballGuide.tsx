@@ -97,14 +97,14 @@ const BaseballGuide = () => {
           <CardContent>
             <Accordion type="single" collapsible className="w-full">
               {teamsData.map((team) => (
-                <AccordionItem value={team.name} key={team.name}>
-                  <AccordionTrigger className="text-lg hover:no-underline">
-                    <div className="flex items-center gap-3">
-                      <Trophy className="w-6 h-6" />
-                      {team.name}
+                <AccordionItem value={team.name} key={team.name} className="border rounded-lg mb-2 overflow-hidden shadow-sm transition-shadow hover:shadow-md">
+                  <AccordionTrigger className="text-lg hover:no-underline px-6 py-4 data-[state=closed]:hover:bg-slate-50 dark:data-[state=closed]:hover:bg-slate-800/50 data-[state=open]:border-b">
+                    <div className="flex items-center gap-4">
+                      <Trophy className="w-6 h-6 text-primary" />
+                      <span className="font-semibold">{team.name}</span>
                     </div>
                   </AccordionTrigger>
-                  <AccordionContent className="pt-4 pb-4 px-5 bg-slate-50 dark:bg-slate-900/50 rounded-b-md">
+                  <AccordionContent className="pt-4 pb-4 px-6 bg-slate-50 dark:bg-slate-900/50">
                     <div className="space-y-4">
                       <div className="flex items-center gap-3">
                         <User className="w-5 h-5 text-muted-foreground" />
