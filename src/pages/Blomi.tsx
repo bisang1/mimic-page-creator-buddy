@@ -1,10 +1,20 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { BookOpen, Users, Trophy, Newspaper, Award, Rocket } from "lucide-react";
+import { useToast } from "@/components/ui/use-toast";
 
 const Blomi = () => {
+  const { toast } = useToast();
+
+  const handleStartClick = () => {
+    toast({
+      title: "환영합니다!",
+      description: "블로미 서비스에 곧 멋진 기능으로 찾아뵙겠습니다.",
+      duration: 3000,
+    });
+  };
+
   const features = [
     {
       icon: <BookOpen className="w-8 h-8 text-blue-500" />,
@@ -62,7 +72,7 @@ const Blomi = () => {
         <p className="max-w-2xl mx-auto text-lg text-gray-600 mb-8">
           블로미는 나만의 공간에서 마음껏 글을 쓰고, 함께 성장하는 즐거움을 나눌 수 있는 온라인 글쓰기 플랫폼입니다.
         </p>
-        <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white">
+        <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white" onClick={handleStartClick}>
           블로미 시작하기 <Rocket className="ml-2" />
         </Button>
       </section>
