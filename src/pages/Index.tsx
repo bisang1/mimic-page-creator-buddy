@@ -1,7 +1,8 @@
+
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { CreditCard, Clock } from "lucide-react";
+import { CreditCard, Clock, PenSquare } from "lucide-react";
 
 const Index = () => {
   return (
@@ -78,6 +79,28 @@ const Index = () => {
               <Link to="/match-schedule">
                 <Button className="w-full">
                   경기 일정 보기
+                </Button>
+              </Link>
+            </CardContent>
+          </Card>
+          
+          <Card className="hover:shadow-lg transition-shadow duration-300 md:col-span-2 lg:col-span-1">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <PenSquare className="w-5 h-5 text-blue-600" />
+                온라인 글쓰기 플랫폼
+              </CardTitle>
+              <CardDescription>
+                글쓰기, 독서, 커뮤니티를 한번에
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-gray-600 mb-4">
+                새로운 글쓰기 플랫폼 Blomi를 경험해보세요.
+              </p>
+              <Link to="/blomi">
+                <Button className="w-full">
+                  Blomi 바로가기
                 </Button>
               </Link>
             </CardContent>
