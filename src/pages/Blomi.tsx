@@ -1,5 +1,6 @@
+
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { BookOpen, Users, Trophy, Newspaper, Award, Rocket } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
@@ -11,6 +12,14 @@ const Blomi = () => {
     toast({
       title: "환영합니다!",
       description: "블로미 서비스에 곧 멋진 기능으로 찾아뵙겠습니다.",
+      duration: 3000,
+    });
+  };
+
+  const handleFeatureClick = (featureTitle: string) => {
+    toast({
+      title: `${featureTitle}`,
+      description: "해당 기능은 곧 준비될 예정입니다. 기대해주세요!",
       duration: 3000,
     });
   };
@@ -83,11 +92,16 @@ const Blomi = () => {
           <h2 className="text-3xl font-bold text-center mb-12">Blomi, 이런 점이 좋아요</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {features.map((feature, index) => (
-              <div key={index} className="text-center p-6 rounded-lg hover:shadow-md transition-shadow">
-                <div className="flex justify-center mb-4">{feature.icon}</div>
-                <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-                <p className="text-gray-500">{feature.description}</p>
-              </div>
+              <Card key={index} className="flex flex-col text-center hover:shadow-lg transition-shadow">
+                <CardContent className="pt-6 flex-grow">
+                  <div className="flex justify-center mb-4">{feature.icon}</div>
+                  <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
+                  <p className="text-gray-500">{feature.description}</p>
+                </CardContent>
+                <div className="p-6 pt-0">
+                  <Button variant="outline" className="w-full" onClick={() => handleFeatureClick(feature.title)}>자세히 보기</Button>
+                </div>
+              </Card>
             ))}
           </div>
         </div>
