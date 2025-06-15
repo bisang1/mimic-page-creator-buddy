@@ -2,7 +2,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { CreditCard, Clock, PenSquare } from "lucide-react";
+import { Mail, Flag, User, Users } from "lucide-react";
 
 const Index = () => {
   return (
@@ -43,7 +43,7 @@ const Index = () => {
           <Card className="hover:shadow-lg transition-shadow duration-300">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <CreditCard className="w-5 h-5 text-green-600" />
+                <Mail className="w-5 h-5 text-green-600" />
                 카드 혜택 안내
               </CardTitle>
               <CardDescription>
@@ -65,7 +65,7 @@ const Index = () => {
           <Card className="hover:shadow-lg transition-shadow duration-300">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <Clock className="w-5 h-5 text-purple-600" />
+                <Flag className="w-5 h-5 text-purple-600" />
                 경기 일정
               </CardTitle>
               <CardDescription>
@@ -84,10 +84,10 @@ const Index = () => {
             </CardContent>
           </Card>
           
-          <Card className="hover:shadow-lg transition-shadow duration-300 md:col-span-2 lg:col-span-1">
+          <Card className="hover:shadow-lg transition-shadow duration-300">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <PenSquare className="w-5 h-5 text-blue-600" />
+                <User className="w-5 h-5 text-blue-600" />
                 온라인 글쓰기 플랫폼
               </CardTitle>
               <CardDescription>
@@ -105,6 +105,28 @@ const Index = () => {
               </Link>
             </CardContent>
           </Card>
+
+          <Card className="hover:shadow-lg transition-shadow duration-300">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Users className="w-5 h-5 text-orange-600" />
+                교육청 정보
+              </CardTitle>
+              <CardDescription>
+                전국 교육청 정보 및 민원 안내
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-gray-600 mb-4">
+                지역별 교육청 정보, 스승찾기, 민원, 신고 서비스를 이용하세요.
+              </p>
+              <Link to="/education-info">
+                <Button className="w-full">
+                  교육 정보 보기
+                </Button>
+              </Link>
+            </CardContent>
+          </Card>
         </div>
 
         <div className="text-center">
@@ -118,3 +140,4 @@ const Index = () => {
 };
 
 export default Index;
+

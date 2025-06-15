@@ -9,6 +9,7 @@ import AirportGuide from "./pages/AirportGuide";
 import CreditCardGuide from "./pages/CreditCardGuide";
 import MatchSchedule from "./pages/MatchSchedule";
 import Blomi from "./pages/Blomi";
+import EducationInfo from "./pages/EducationInfo";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -25,6 +26,7 @@ const App = () => (
           <Route path="/credit-card-guide" element={<CreditCardGuide />} />
           <Route path="/match-schedule" element={<MatchSchedule />} />
           <Route path="/blomi" element={<Blomi />} />
+          <Route path="/education-info" element={<EducationInfo />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
@@ -34,3 +36,4 @@ const App = () => (
 );
 
 export default App;
+
