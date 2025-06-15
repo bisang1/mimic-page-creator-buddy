@@ -1,7 +1,8 @@
+
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Mail, Flag, Users, Baseball } from "lucide-react";
+import { Mail, Flag, Users, Trophy } from "lucide-react";
 
 const Index = () => {
   return (
@@ -42,7 +43,7 @@ const Index = () => {
           <Card className="hover:shadow-lg transition-shadow duration-300">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <Baseball className="w-5 h-5 text-red-600" />
+                <Trophy className="w-5 h-5 text-red-600" />
                 야구장 안내
               </CardTitle>
               <CardDescription>

@@ -2,7 +2,7 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Baseball, MapPin, CarFront } from "lucide-react";
+import { Trophy, MapPin, CarFront } from "lucide-react";
 
 const teamsData = [
   {
@@ -83,7 +83,7 @@ const BaseballGuide = () => {
       <div className="max-w-4xl mx-auto">
         <header className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 flex items-center justify-center gap-3">
-            <Baseball className="w-10 h-10 text-primary" />
+            <Trophy className="w-10 h-10 text-primary" />
             KBO 리그 구장 안내
           </h1>
           <p className="text-lg text-gray-600">
@@ -101,7 +101,7 @@ const BaseballGuide = () => {
                 <AccordionItem value={team.name} key={team.name}>
                   <AccordionTrigger className="text-lg font-semibold hover:no-underline">
                     <div className="flex items-center gap-3">
-                      <Baseball className="w-6 h-6" />
+                      <Trophy className="w-6 h-6" />
                       {team.name}
                     </div>
                   </AccordionTrigger>
