@@ -1,8 +1,7 @@
-
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Mail, Flag, Users, Trophy } from "lucide-react";
+import { Mail, Flag, Users, Trophy, Calendar } from "lucide-react";
 
 const Index = () => {
   return (
@@ -65,20 +64,20 @@ const Index = () => {
           <Card className="hover:shadow-lg transition-shadow duration-300">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <Flag className="w-5 h-5 text-purple-600" />
-                축구 경기 일정
+                <Calendar className="w-5 h-5 text-purple-600" />
+                주요 경기 일정
               </CardTitle>
               <CardDescription>
-                실시간 경기 및 예약 정보
+                K리그와 KBO의 최신 경기 일정을 확인하세요.
               </CardDescription>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-gray-600 mb-4">
-                실시간 경기 일정과 시설 예약 현황을 확인하세요.
+                주요 프로 스포츠 경기들의 최신 일정을 확인 할 수 있습니다.
               </p>
               <Link to="/match-schedule">
                 <Button className="w-full">
-                  축구 경기 일정 보기
+                  경기 일정 보기
                 </Button>
               </Link>
             </CardContent>
