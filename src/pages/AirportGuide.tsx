@@ -1,6 +1,5 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { SoccerBall, Megaphone } from "lucide-react";
+import { Megaphone } from "lucide-react";
 
 const stadiums = [
   {
@@ -53,7 +52,7 @@ const AirportGuide = () => {
       <div className="max-w-6xl mx-auto">
         <header className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 flex items-center justify-center gap-3">
-            <SoccerBall className="w-10 h-10 text-primary" />
+            <span role="img" aria-label="soccer ball" className="text-4xl">⚽</span>
             대한민국 축구장 안내
           </h1>
           <p className="text-lg text-gray-600">
