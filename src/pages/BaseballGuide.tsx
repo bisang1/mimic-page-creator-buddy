@@ -1,8 +1,7 @@
-
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Trophy, MapPin, CarFront } from "lucide-react";
+import { Trophy, MapPin, CarFront, User, Ticket, TrainFront } from "lucide-react";
 
 const teamsData = [
   {
@@ -99,34 +98,38 @@ const BaseballGuide = () => {
             <Accordion type="single" collapsible className="w-full">
               {teamsData.map((team) => (
                 <AccordionItem value={team.name} key={team.name}>
-                  <AccordionTrigger className="text-lg font-semibold hover:no-underline">
+                  <AccordionTrigger className="text-lg hover:no-underline">
                     <div className="flex items-center gap-3">
                       <Trophy className="w-6 h-6" />
                       {team.name}
                     </div>
                   </AccordionTrigger>
-                  <AccordionContent className="space-y-4 pt-4 pl-8 border-l-2 border-gray-200 ml-3">
-                    <div className="flex items-center gap-3 text-base">
-                      <strong className="w-24 shrink-0">감독</strong>
-                      <span>{team.manager}</span>
-                    </div>
-                    <div className="flex items-start gap-3 text-base">
-                      <MapPin className="w-5 h-5 text-gray-600 mt-1 shrink-0" />
-                      <div className="flex flex-col">
-                        <strong className="mb-1">홈구장</strong>
-                        <span>{team.stadium}</span>
+                  <AccordionContent className="pt-4 pb-4 px-5 bg-slate-50 dark:bg-slate-900/50 rounded-b-md">
+                    <div className="space-y-4">
+                      <div className="flex items-center gap-3">
+                        <User className="w-5 h-5 text-muted-foreground" />
+                        <p className="text-sm font-medium leading-none w-20">감독</p>
+                        <p className="text-sm text-muted-foreground">{team.manager}</p>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <MapPin className="w-5 h-5 text-muted-foreground mt-0.5" />
+                        <div>
+                          <p className="text-sm font-medium leading-none">홈구장</p>
+                          <p className="text-sm text-muted-foreground pt-1">{team.stadium}</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <CarFront className="w-5 h-5 text-muted-foreground mt-0.5" />
+                        <div>
+                          <p className="text-sm font-medium leading-none">교통/주차</p>
+                          <p className="text-sm text-muted-foreground pt-1">{team.transport}</p>
+                        </div>
                       </div>
                     </div>
-                    <div className="flex items-start gap-3 text-base">
-                      <CarFront className="w-5 h-5 text-gray-600 mt-1 shrink-0" />
-                      <div className="flex flex-col">
-                        <strong className="mb-1">교통/주차</strong>
-                        <span>{team.transport}</span>
-                      </div>
-                    </div>
-                    <div className="pt-2">
+                    <div className="pt-4 mt-4 border-t border-slate-200 dark:border-slate-800">
                       <a href={team.ticketing} target="_blank" rel="noopener noreferrer">
-                        <Button variant="outline" className="w-full sm:w-auto">
+                        <Button variant="secondary" className="w-full sm:w-auto">
+                          <Ticket />
                           예매 바로가기
                         </Button>
                       </a>
@@ -141,6 +144,7 @@ const BaseballGuide = () => {
         <Card>
             <CardHeader>
                 <CardTitle className="flex items-center gap-2">
+                    <TrainFront />
                     KTX 기차 예매
                 </CardTitle>
             </CardHeader>
