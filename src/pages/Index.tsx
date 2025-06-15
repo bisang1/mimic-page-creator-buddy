@@ -1,8 +1,7 @@
-
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Mail, Flag, Users } from "lucide-react";
+import { Mail, Flag, Users, Baseball } from "lucide-react";
 
 const Index = () => {
   return (
@@ -43,20 +42,20 @@ const Index = () => {
           <Card className="hover:shadow-lg transition-shadow duration-300">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <Mail className="w-5 h-5 text-green-600" />
-                카드 혜택 안내
+                <Baseball className="w-5 h-5 text-red-600" />
+                야구장 안내
               </CardTitle>
               <CardDescription>
-                인기 카드 추천 및 이벤트 정보
+                KBO 리그 구장 및 팀 정보
               </CardDescription>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-gray-600 mb-4">
-                주요 카드사별 인기 카드, 특별 할인 및 이벤트 정보를 모아보세요.
+                전국 야구장 정보, 팀별 감독, 예매, 교통 정보를 확인하세요.
               </p>
-              <Link to="/credit-card-guide">
+              <Link to="/baseball-guide">
                 <Button className="w-full">
-                  카드 정보 보기
+                  야구장 정보 보기
                 </Button>
               </Link>
             </CardContent>

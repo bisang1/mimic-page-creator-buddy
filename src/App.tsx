@@ -8,7 +8,7 @@ import Index from "./pages/Index";
 import AirportGuide from "./pages/AirportGuide";
 import CreditCardGuide from "./pages/CreditCardGuide";
 import MatchSchedule from "./pages/MatchSchedule";
-import Blomi from "./pages/Blomi";
+import BaseballGuide from "./pages/BaseballGuide";
 import EducationInfo from "./pages/EducationInfo";
 import NotFound from "./pages/NotFound";
 
@@ -25,7 +25,7 @@ const App = () => (
           <Route path="/airport-guide" element={<AirportGuide />} />
           <Route path="/credit-card-guide" element={<CreditCardGuide />} />
           <Route path="/match-schedule" element={<MatchSchedule />} />
-          <Route path="/blomi" element={<Blomi />} />
+          <Route path="/baseball-guide" element={<BaseballGuide />} />
           <Route path="/education-info" element={<EducationInfo />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
@@ -36,4 +36,3 @@ const App = () => (
 );
 
 export default App;
-
