@@ -1,7 +1,5 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Search, Mail, Flag } from "lucide-react";
 import { toast } from "@/components/ui/sonner";
 
@@ -76,27 +74,20 @@ const EducationInfo = () => {
 
         <section>
           <h2 className="text-3xl font-bold text-center mb-8">전국 시도 교육청</h2>
-          <Accordion type="single" collapsible className="w-full bg-white p-4 rounded-lg shadow">
-            {educationOffices.map((office, index) => (
-              <AccordionItem key={index} value={`item-${index + 1}`}>
-                <AccordionTrigger className="text-lg font-medium hover:no-underline">
-                  <div className="flex items-center gap-3">
-                    {office.name}
-                  </div>
-                </AccordionTrigger>
-                <AccordionContent className="pl-10">
-                  <p className="text-gray-700">
-                    공식 웹사이트로 이동하여 더 자세한 정보를 확인하세요.
-                  </p>
-                  <Button asChild variant="link" className="px-0">
-                    <a href={office.url} target="_blank" rel="noopener noreferrer">
-                      웹사이트 바로가기
-                    </a>
-                  </Button>
-                </AccordionContent>
-              </AccordionItem>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+            {educationOffices.map((office) => (
+              <Button
+                key={office.name}
+                asChild
+                variant="outline"
+                className="h-16 text-center justify-center font-semibold hover:bg-accent transition-shadow hover:shadow-md"
+              >
+                <a href={office.url} target="_blank" rel="noopener noreferrer">
+                  {office.name}
+                </a>
+              </Button>
             ))}
-          </Accordion>
+          </div>
         </section>
       </main>
 
@@ -108,4 +99,3 @@ const EducationInfo = () => {
 };
 
 export default EducationInfo;
-
